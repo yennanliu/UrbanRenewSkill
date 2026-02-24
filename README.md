@@ -1,13 +1,19 @@
-# Taiwan Urban Renewal Expert Skill for Claude Code
+# Taiwan Urban Renewal Expert Skill
 
 ## 台灣都市更新全方位顧問技能包
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-org/UrbanRenewSkill)
-[![Language](https://img.shields.io/badge/language-Traditional%20Chinese-green.svg)](https://github.com/your-org/UrbanRenewSkill)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-purple.svg)](https://github.com/anthropics/claude-code)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yennanliu/UrbanRenewSkill)
+[![Language](https://img.shields.io/badge/language-Traditional%20Chinese-green.svg)](https://github.com/yennanliu/UrbanRenewSkill)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-✓-purple.svg)](https://github.com/anthropics/claude-code)
+[![Cursor](https://img.shields.io/badge/Cursor-✓-blue.svg)](cross-platform/cursor/)
+[![Copilot](https://img.shields.io/badge/GitHub%20Copilot-✓-green.svg)](cross-platform/copilot/)
+[![Gemini](https://img.shields.io/badge/Gemini-✓-orange.svg)](cross-platform/gemini/)
+[![Universal](https://img.shields.io/badge/ChatGPT%20%7C%20Claude-✓-red.svg)](cross-platform/universal/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
 
-專為 [Claude Code](https://github.com/anthropics/claude-code) 開發的台灣都市更新專家 AI 技能，整合實施者、建築師與法律顧問的專業能力。
+台灣都市更新專家 AI 技能，整合實施者、建築師與法律顧問的專業能力。
+
+**🎉 新功能：** 現已支援多個 AI 平台！[查看跨平台設定指南 →](cross-platform/README.md)
 
 ## ✨ 特色功能
 
@@ -28,7 +34,23 @@
 | **法律諮商** | 代為拆除程序、少數不同意戶權益、信託機制 |
 | **文書製作** | 事業計畫書、權變計畫、通知書、合建契約起草 |
 
-## 📦 安裝方式
+## 🤖 支援的 AI 平台
+
+本技能現已支援多個 AI 平台，選擇您喜歡的工具開始使用：
+
+| 平台 | 狀態 | 設定時間 | 適用對象 | 快速開始 |
+|------|------|---------|---------|---------|
+| **Claude Code** | ✅ 原生支援 | 0分鐘 | 開發者 | [開始使用](#方法一直接使用推薦) |
+| **Cursor** | ✅ 完整支援 | 1分鐘 | 開發者 | [Cursor 設定](cross-platform/cursor/) |
+| **GitHub Copilot** | ✅ 完整支援 | 2分鐘 | VS Code 用戶 | [Copilot 設定](cross-platform/copilot/) |
+| **Google Gemini** | ✅ 完整支援 | 1分鐘 | CLI/API 用戶 | [Gemini 設定](cross-platform/gemini/) |
+| **ChatGPT** | ✅ 完整支援 | 1分鐘 | 一般用戶 | [ChatGPT 設定](cross-platform/universal/) |
+| **Claude.ai** | ✅ 完整支援 | 1分鐘 | 一般用戶 | [Claude 設定](cross-platform/universal/) |
+
+**📖 詳細設定指南：** [cross-platform/README.md](cross-platform/README.md)
+**⚡ 快速參考：** [cross-platform/QUICK-REFERENCE.md](cross-platform/QUICK-REFERENCE.md)
+
+## 📦 Claude Code 安裝方式
 
 ### 方法一：直接使用（推薦）
 
