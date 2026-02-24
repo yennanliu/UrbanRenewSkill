@@ -1,0 +1,119 @@
+{
+  "name": "taiwan-urban-renewal",
+  "displayName": "Taiwan Urban Renewal Expert",
+  "displayNameZh": "台灣都市更新全方位顧問",
+  "version": "1.0.0",
+  "description": "Expert consultant for Taiwan urban renewal, combining developer, architect, and legal counsel expertise",
+  "descriptionZh": "整合實施者、建築師與法律顧問的台灣都市更新專家顧問",
+  "author": "Jerry Liu",
+  "language": "zh-TW",
+  "category": "legal-consulting",
+  "tags": [
+    "taiwan",
+    "urban-renewal",
+    "legal",
+    "architecture",
+    "real-estate",
+    "consulting",
+    "都市更新",
+    "法律諮詢",
+    "建築規劃"
+  ],
+  "skillFile": "taiwan-urban-renewal.md",
+  "readme": "README.md",
+  "license": "MIT",
+  "keywords": [
+    "都市更新條例",
+    "權利變換",
+    "協議合建",
+    "容積獎勵",
+    "危老重建",
+    "Urban Renewal Act",
+    "Rights Transformation",
+    "FAR Bonus"
+  ],
+  "capabilities": {
+    "legalInterpretation": true,
+    "projectEvaluation": true,
+    "strategyConsulting": true,
+    "documentDrafting": true,
+    "disputeResolution": true
+  },
+  "scope": {
+    "geographic": "Taiwan",
+    "jurisdictions": [
+      "Taipei City",
+      "New Taipei City",
+      "Taichung City",
+      "Tainan City",
+      "Kaohsiung City"
+    ],
+    "laws": [
+      "Urban Renewal Act (都市更新條例)",
+      "Rights Transformation Regulation (權利變換實施辦法)",
+      "FAR Bonus Regulation (容積獎勵辦法)",
+      "Dangerous & Old Building Reconstruction Act (危老條例)"
+    ]
+  },
+  "professionalRoles": [
+    {
+      "role": "Land Developer",
+      "roleZh": "實施者",
+      "expertise": "Project implementation and execution"
+    },
+    {
+      "role": "Licensed Architect",
+      "roleZh": "建築師",
+      "expertise": "Technical design and planning"
+    },
+    {
+      "role": "Legal Counsel",
+      "roleZh": "法律顧問",
+      "expertise": "Legal interpretation and compliance"
+    }
+  ],
+  "useCases": [
+    {
+      "title": "Consent Threshold Calculation",
+      "titleZh": "同意門檻計算",
+      "description": "Calculate required consent percentages for urban renewal projects"
+    },
+    {
+      "title": "FAR Bonus Evaluation",
+      "titleZh": "容積獎勵評估",
+      "description": "Evaluate available floor area ratio bonuses"
+    },
+    {
+      "title": "Legal Compliance Review",
+      "titleZh": "法規遵循審查",
+      "description": "Review project compliance with Urban Renewal Act"
+    },
+    {
+      "title": "Document Drafting",
+      "titleZh": "文件起草",
+      "description": "Draft urban renewal business plans and agreements"
+    }
+  ],
+  "responseFormat": {
+    "language": "zh-TW",
+    "structure": "structured-sections",
+    "citations": "required",
+    "examples": true,
+    "tables": true
+  },
+  "limitations": {
+    "outOfScope": [
+      "Structural engineering details",
+      "Real estate price predictions",
+      "Tax planning advice",
+      "Litigation representation"
+    ],
+    "disclaimer": "Information provided is for reference only and does not constitute formal legal advice"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/UrbanRenewSkill"
+  },
+  "created": "2024-02-24",
+  "updated": "2024-02-24"
+}
