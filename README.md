@@ -94,6 +94,314 @@ ln -s /path/to/UrbanRenewSkill/.claude/skills/taiwan-urban-renewal.md ~/.claude/
 mklink %USERPROFILE%\.claude\skills\taiwan-urban-renewal.md "C:\path\to\UrbanRenewSkill\.claude\skills\taiwan-urban-renewal.md"
 ```
 
+---
+
+## 📦 其他 AI 平台安裝方式
+
+### 🔵 Cursor IDE
+
+**適用於：** Cursor IDE 用戶
+
+#### 快速安裝
+```bash
+# 方法一：複製到專案根目錄（推薦）
+cp cross-platform/cursor/.cursorrules .cursorrules
+
+# Cursor 會自動載入配置
+```
+
+#### 全域安裝
+```bash
+# 複製到 Cursor 全域配置目錄
+cp cross-platform/cursor/.cursorrules ~/.cursor/.cursorrules
+```
+
+#### 使用方式
+1. 開啟 Cursor IDE
+2. 按 `Cmd+K` (Mac) 或 `Ctrl+K` (Windows)
+3. 輸入都更相關問題，例如：
+   ```
+   我們社區要推動都更，需要多少住戶同意？
+   ```
+
+#### 優點
+- ✅ 自動載入，無需手動配置
+- ✅ 整合在編輯器中
+- ✅ 支援程式碼註解觸發
+- ✅ 團隊共享配置（透過 Git）
+
+📖 **詳細文件：** [cross-platform/cursor/](cross-platform/cursor/)
+
+---
+
+### 🟢 GitHub Copilot
+
+**適用於：** VS Code + GitHub Copilot 用戶
+
+#### 方法一：專案配置（推薦）
+```bash
+# 建立 .github 目錄
+mkdir -p .github
+
+# 複製 Copilot 指示檔
+cp cross-platform/copilot/copilot-instructions.md .github/copilot-instructions.md
+```
+
+#### 方法二：VS Code 設定
+在專案根目錄建立或編輯 `.vscode/settings.json`：
+
+```json
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "當討論台灣都市更新議題時，請扮演都市更新全方位顧問，整合實施者、建築師與法律顧問專業..."
+    }
+  ],
+  "github.copilot.chat.localeOverride": "zh-TW"
+}
+```
+
+#### 使用方式
+
+**Copilot Chat:**
+```
+@workspace 請用都市更新專家角色說明同意門檻
+```
+
+**程式碼註解:**
+```typescript
+// 請用都市更新專家角色計算容積獎勵
+```
+
+**Inline Chat:**
+```
+Ctrl+I (或 Cmd+I): 請比較危老重建和都更
+```
+
+#### 優點
+- ✅ 整合在開發流程中
+- ✅ 支援多種觸發方式
+- ✅ 團隊可共享配置
+- ✅ 版本控制友善
+
+📖 **詳細文件：** [cross-platform/copilot/copilot-instructions.md](cross-platform/copilot/copilot-instructions.md)
+
+---
+
+### 🟠 Google Gemini
+
+**適用於：** Gemini CLI 或 API 用戶
+
+#### Gemini CLI 使用
+
+**一次性使用:**
+```bash
+gemini chat --system-instruction="$(cat cross-platform/gemini/gemini-system-instruction.txt)"
+```
+
+**建立別名（推薦）:**
+```bash
+# 加入到 ~/.zshrc 或 ~/.bashrc
+echo 'alias urban-renewal="gemini chat --system-instruction=\"\$(cat ~/UrbanRenewSkill/cross-platform/gemini/gemini-system-instruction.txt)\""' >> ~/.zshrc
+
+# 重新載入
+source ~/.zshrc
+
+# 使用
+urban-renewal
+```
+
+#### Gemini API 使用
+
+**Python 範例:**
+```python
+import google.generativeai as genai
+
+# 讀取系統指示
+with open('cross-platform/gemini/gemini-system-instruction.txt', 'r') as f:
+    system_instruction = f.read()
+
+# 配置模型
+genai.configure(api_key='your-api-key')
+model = genai.GenerativeModel(
+    model_name='gemini-1.5-pro',
+    system_instruction=system_instruction
+)
+
+# 使用
+response = model.generate_content('我們社區要推動都更，需要多少同意？')
+print(response.text)
+```
+
+#### 優點
+- ✅ 支援 CLI 和 API
+- ✅ 適合自動化腳本
+- ✅ 可整合到工作流程
+- ✅ Python、Node.js 等多語言支援
+
+📖 **詳細文件：** [cross-platform/gemini/gemini-system-instruction.txt](cross-platform/gemini/gemini-system-instruction.txt)
+
+---
+
+### 🔴 ChatGPT (OpenAI)
+
+**適用於：** ChatGPT 網頁版或 API 用戶
+
+#### 網頁版設定
+
+1. 登入 [ChatGPT](https://chat.openai.com)
+2. 點選左下角個人資料
+3. **Settings** → **Personalization** → **Custom Instructions**
+4. 在 "How would you like ChatGPT to respond?" 貼上：
+
+```
+從 cross-platform/universal/system-prompt.md 複製「SYSTEM PROMPT」區塊內容
+```
+
+5. 儲存並開始使用
+
+#### OpenAI API 使用
+
+**Python 範例:**
+```python
+import openai
+
+# 讀取系統提示詞
+with open('cross-platform/universal/system-prompt.md', 'r') as f:
+    content = f.read()
+    # 提取 SYSTEM PROMPT 區塊
+    system_prompt = content.split('```')[1]
+
+openai.api_key = 'your-api-key'
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": "容積獎勵最高可以拿到多少？"}
+    ]
+)
+print(response.choices[0].message.content)
+```
+
+#### 優點
+- ✅ 設定簡單
+- ✅ 所有對話都套用
+- ✅ 支援網頁和 API
+- ✅ 持久化配置
+
+📖 **詳細文件：** [cross-platform/universal/system-prompt.md](cross-platform/universal/system-prompt.md)
+
+---
+
+### 🟣 Claude.ai (Anthropic)
+
+**適用於：** Claude.ai 網頁版或 API 用戶
+
+#### 網頁版設定
+
+1. 登入 [Claude.ai](https://claude.ai)
+2. 點選左上角 **Projects**
+3. 建立新專案：「Taiwan Urban Renewal Expert」
+4. 在 **Project Knowledge** 中：
+   - 點選 **Add Content**
+   - 上傳 `cross-platform/universal/system-prompt.md`
+   - 或直接貼上系統提示詞到 Custom Instructions
+5. 開始使用
+
+#### Anthropic API 使用
+
+**Python 範例:**
+```python
+import anthropic
+
+# 讀取系統提示詞
+with open('cross-platform/universal/system-prompt.md', 'r') as f:
+    content = f.read()
+    system_prompt = content.split('```')[1]
+
+client = anthropic.Anthropic(api_key='your-api-key')
+message = client.messages.create(
+    model="claude-3-5-sonnet-20241022",
+    max_tokens=4096,
+    system=system_prompt,
+    messages=[
+        {"role": "user", "content": "危老重建跟都更有什麼差別？"}
+    ]
+)
+print(message.content[0].text)
+```
+
+#### 優點
+- ✅ 支援 Project Knowledge
+- ✅ 長上下文能力強
+- ✅ 適合複雜文件分析
+- ✅ 網頁和 API 都支援
+
+📖 **詳細文件：** [cross-platform/universal/system-prompt.md](cross-platform/universal/system-prompt.md)
+
+---
+
+### ⚫ 其他 AI 工具
+
+**適用於：** 其他支援自訂指示的 AI 工具
+
+大多數 AI 工具都支援某種形式的自訂指示。查找以下關鍵字：
+- "Custom Instructions"
+- "System Prompt"
+- "Personality Settings"
+- "Behavior Configuration"
+
+#### 通用設定步驟
+
+1. 開啟 [`cross-platform/universal/system-prompt.md`](cross-platform/universal/system-prompt.md)
+2. 複製 **SYSTEM PROMPT** 區塊內容
+3. 在您的 AI 工具中找到自訂指示設定
+4. 貼上並儲存
+5. 測試是否正常運作
+
+📖 **詳細文件：** [cross-platform/README.md](cross-platform/README.md)
+
+---
+
+## 🧪 安裝測試
+
+設定完成後，使用以下問題測試是否正常運作：
+
+### ✅ 測試 1：語言與格式
+```
+我們社區在台北市信義區，想推動都更需要多少住戶同意？
+```
+
+**預期結果：**
+- ✓ 回應使用繁體中文（台灣）
+- ✓ 包含結構化格式（📋📊⚖️💡⚠️📝）
+- ✓ 引用具體法條（都市更新條例第22條）
+- ✓ 區分劃定與非劃定地區
+
+### ✅ 測試 2：計算能力
+```
+基準容積300%，申請綠建築和智慧建築獎勵，總容積可達多少？
+```
+
+**預期結果：**
+- ✓ 引用都市更新條例第65條
+- ✓ 列出各項獎勵百分比
+- ✓ 顯示計算過程
+- ✓ 說明50%上限
+
+### ✅ 測試 3：比較分析
+```
+請用表格比較危老重建和都更的差異
+```
+
+**預期結果：**
+- ✓ 使用表格格式
+- ✓ 至少10項比較項目
+- ✓ 包含同意門檻、容積獎勵、時程等
+- ✓ 提供選擇建議
+
+---
+
 ## 🚀 快速開始
 
 ### 基本使用
